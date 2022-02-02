@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8" />
+
+<style id="webmakerstyle">
+header {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 20px 40px;
+  background: #000000;
+  box-sizing: border-box;
+}
+header .inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+p2.logo {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  width: 100px;
+  font-weight: bold;
+  color: #f0ffff;
+}
+
+/* header-navi */
+
+header .navi {
+  margin: 0 0 0 auto;
+  padding: 0;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  list-style: none;
+}
+header .navi li {
+  margin: 5px 0 5px 40px;
+}
+header .navi li:first-child {
+  margin-left: 0;
+}
+header .navi li a {
+  display: block;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: azure;
+}
+header .navi li a:hover {
+  text-decoration: underline;
+}
+
+/* layout */
+
+body {
+  margin: 0;
+  padding: 0;
+}
+#main {
+  height: 3000px;
+}
+/*背景*/
+body {
+ background-color: rgba(0, 255, 0, 1); 
+}
+
+.eye {position: absolute; top: 173px; }
+
+#me {
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  padding: 20px 40px;
+  background: #f0ffff;
+  border-radius: 10px;
+ 
+}
+
+.contents {
+   overflow: hidden;
+}
+.item {
+   float: left;
+   padding: 20px 30px;
+   text-align: center;
+   
+}
+
+.girl1{
+  position: absolute;
+}
+
+.girl4{
+  position: absolute;
+}
+
+.anime {
+      position: relative;
+    }
+
+.girl2 {
+      position: absolute;
+    }
+.girl3 {
+      position: absolute;
+      animation: mabataki-tojiru 5s infinite;
+  z-index: 5;
+    }
+
+.girl4{
+  z-index: 10;
+}
+
+
+@keyframes mabataki-akeru {
+      100% {
+        opacity: 1;
+      }
+      10% {
+        opacity: 1;
+      }
+      0% {
+        opacity: 0;
+      }
+     }
+@keyframes mabataki-tojiru {
+      100% {
+        opacity: 0;
+      }
+      2% {
+        opacity: 0;
+      }
+      0% {
+        opacity: 1;
+      }
+     } 
+</style>
+</head>
+<body>
+<header>
+  <div class="inner">
+    <p2 class="logo"><h1>イラア
+    バター</h1></p2>
+    <ul class="navi">
+      <li><a href="https://kanabasi.wordpress.com/%e3%82%a4%e3%83%a9%e3%82%a2%e3%83%90%e3%82%bf%e3%83%bc/">使い方</a></li>
+      <li><a href="#">利用規約</a></li>
+      <li><a href="https://twitter.com/Yattazee123">製作者Twitter</a></li>
+      <li><a href="#"></a></li>
+    </ul>
+  </div>
+</header>
+<div id="main"></div>
+
+
+
+<div class="eye">
+
+
+<div class="anime">
+  <div id="me">
+   <h1>設定</h1> 
+  <button onclick="beginDetect()">マイクon</button>
+  <p id="put"></p>
+
+
+
+<div class="contents">
+  
+  
+  <div class="item">
+    <h4>目を開けて口を閉じた画像</h4>
+<input type="file" accept='image/*' multiple="multiple" onchange="preview(this);">
+
+</div>
+    
+
+
+  <div class="item">
+     <h4>目を閉じて口を閉じた画像</h4>
+<input type="file" accept='image/*' multiple="multiple" onchange="previe(this);">
+
+</div>
+    
+
+  
+  
+  
+<div class="item">
+   <h4>目を開けて口を開けた画像</h4>
+<input type="file" accept='image/*' multiple="multiple" onchange="previ(this);">
+
+</div>
+ 
+  
+  
+<div class="item">
+<div class="left"> 
+  <h2>バージョン</h2>
+  <p><h2>1.0</h2></p>
+  </div>
+ </div>
+  
+    
+
+    
+    
+    
+  </div>
+   </div>
+   
+  
+  
+ <ma>
+   <h1>実行画面</h1>
+  <div id="preview"></div>
+    <div id="preview"></div>
+      <div id="preview"></div>
+  </ma>
+    
+  
+  </div>
+  
+
+<script>
+var audioContext
+var mediaStreamSource
+var meter
+
+
+
+function preview(obj){
+    for (i = 0; i < obj.files.length; i++) {
+        var fileReader = new FileReader();
+        fileReader.onload = (function (e) {
+            document.getElementById('preview').innerHTML += '<img src="' + e.target.result + '" style="max-width:500px;" class="girl2">';
+        });
+        fileReader.readAsDataURL(obj.files[i]);
+    }
+}
+
+
+
+
+function previe(obj){
+    for (i = 0; i < obj.files.length; i++) {
+        var fileReader = new FileReader();
+        fileReader.onload = (function (e) {
+            document.getElementById('preview').innerHTML += '<img src="' + e.target.result + '" style="max-width:500px;" class="girl3">';
+        });
+        fileReader.readAsDataURL(obj.files[i]);
+    }
+}
+
+
+function previ(obj){
+    for (i = 0; i < obj.files.length; i++) {
+        var fileReader = new FileReader();
+        fileReader.onload = (function (e) {
+            document.getElementById('preview').innerHTML += '<div id="box"> <img src="' + e.target.result + '" style="max-width:500px;" class="girl4"></div>';
+        });
+        fileReader.readAsDataURL(obj.files[i]);
+    }
+}
+
+
+function beginDetect() {
+  audioContext = new (window.AudioContext || window.webkitAudioContext)()
+ 
+  if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+    navigator.mediaDevices.getUserMedia({audio: true}).then((stream) => {
+ 
+      mediaStreamSource = audioContext.createMediaStreamSource(stream)
+      meter = createAudioMeter(audioContext)
+      mediaStreamSource.connect(meter)
+    })
+  }
+}
+
+function createAudioMeter(audioContext, clipLevel, averaging, clipLag) {
+  const processor = audioContext.createScriptProcessor(512)
+  processor.onaudioprocess = volumeAudioProcess
+  processor.clipping = false
+  processor.lastClip = 0
+  processor.volume = 0
+  processor.clipLevel = clipLevel || 0.98
+  processor.averaging = averaging || 0.95
+  processor.clipLag = clipLag || 750
+  processor.connect(audioContext.destination)
+
+  processor.checkClipping = function() {
+    if (!this.clipping) {
+      return false
+    }
+    if ((this.lastClip + this.clipLag) < window.performance.now()) {
+      this.clipping = false
+    }
+    return this.clipping
+  }
+
+  processor.shutdown = function() {
+    this.disconnect()
+    this.onaudioprocess = null
+  }
+
+  return processor
+}
+function volumeAudioProcess(event) {
+  const buf = event.inputBuffer.getChannelData(0)
+  const bufLength = buf.length
+  let sum = 0
+  let x
+  
+  for (var i = 0; i < bufLength; i++) {
+    x = buf[i]
+    if (Math.abs(x) >= this.clipLevel) {
+        this.clipping = true
+        this.lastClip = window.performance.now()
+    }
+    sum += x * x
+  }
+  const rms = Math.sqrt(sum / bufLength)
+  this.volume = Math.max(rms, this.volume * this.averaging) 
+
+{
+  let x = this.volume
+  if (x > 0.05)
+  {   document.getElementById("box").style.display="block";
+  }
+  if (x < 0.05)
+  { document.getElementById("box").style.display="none";
+  }
+}  
+}
+//# sourceURL=userscript.js
+</script>
+</body>
+</html>
