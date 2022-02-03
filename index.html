@@ -144,7 +144,36 @@ body {
       0% {
         opacity: 1;
       }
-     } 
+     }
+  
+
+.animation{
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-duration: 3s;
+  
+}
+
+.keyframe1{
+  animation-name: anim_v;
+}
+
+@keyframes anim_v {
+  0% {
+    transform: translate(0, 0px);
+  }
+  
+  100% {
+    transform: translate(0, 15px);
+  }
+}
+
+
+
+
+
+
 </style>
 </head>
 <body>
@@ -239,7 +268,7 @@ function preview(obj){
     for (i = 0; i < obj.files.length; i++) {
         var fileReader = new FileReader();
         fileReader.onload = (function (e) {
-            document.getElementById('preview').innerHTML += '<img src="' + e.target.result + '" style="max-width:500px;" class="girl2">';
+            document.getElementById('preview').innerHTML += '<div class="keyframe1 animation"><img src="' + e.target.result + '" style="max-width:500px;" class="girl2"></div>';
         });
         fileReader.readAsDataURL(obj.files[i]);
     }
@@ -252,7 +281,7 @@ function previe(obj){
     for (i = 0; i < obj.files.length; i++) {
         var fileReader = new FileReader();
         fileReader.onload = (function (e) {
-            document.getElementById('preview').innerHTML += '<img src="' + e.target.result + '" style="max-width:500px;" class="girl3">';
+            document.getElementById('preview').innerHTML += '<div class="keyframe1 animation"><img src="' + e.target.result + '" style="max-width:500px;" class="girl3"></div>';
         });
         fileReader.readAsDataURL(obj.files[i]);
     }
@@ -263,7 +292,7 @@ function previ(obj){
     for (i = 0; i < obj.files.length; i++) {
         var fileReader = new FileReader();
         fileReader.onload = (function (e) {
-            document.getElementById('preview').innerHTML += '<div id="box"> <img src="' + e.target.result + '" style="max-width:500px;" class="girl4"></div>';
+            document.getElementById('preview').innerHTML += '<div id="box"><div class="keyframe1 animation"> <img src="' + e.target.result + '" style="max-width:500px;" class="girl4"></div></div>';
         });
         fileReader.readAsDataURL(obj.files[i]);
     }
